@@ -5,12 +5,15 @@ services:
     build: .
     depends_on:
       - redis
+    env_file:
+      - .env
     environment:
-      CLIENT_ID: "1234"
-      CLIENT_SECRET: "4321"
-      BOT_TOKEN: "token"
-      REDIS_HOST: redis
-      REDIS_PORT: 6379
+      - CLIENT_ID
+      - CLIENT_SECRET
+      - BOT_TOKEN
+      - REDIS_HOST
+      - REDIS_PORT
+      - ALLOWED_USERS
 
   redis:
     image: redis:7-alpine
